@@ -1,0 +1,127 @@
+body {
+    background-color: #f2b0be;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.permanent-marker-regular, .title {
+    font-family: "Permanent Marker", cursive, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* Left side */
+.left-side{
+    display: flex;
+    width: 600px;
+    height: 500px;
+    margin-left: 75px;
+    margin-top: 7%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Right side */
+.right-side{
+    display: flex;
+    margin-right: 75px;
+    margin-top: 7%;
+    width: 600px;
+    height: 500px;
+    justify-content: center;
+}
+
+.content{
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 50px;
+}
+
+.image{
+    width: 250px;
+    height: 250px;
+    margin-left: 5px;
+}
+
+.prev, .next {
+    background-color: #f2b0be;
+    cursor: pointer;
+    border-width: 2px;
+    margin-top: 20px;
+    height: 40px;
+    width: 150px;
+    border-radius: 20px;
+    transition: background-color 0.25s, color 0.25s; /* Correctly specify the transition properties */
+}
+
+button:hover {
+    background-color: #ff477e; /* Slight color change on hover */
+    color: white;
+    border: none;
+    border-width: 2px;
+    transition: background-color 0.50s, color 0.50s; /* Specify the transition properties correctly */
+}
+
+
+
+
+.image-container {
+    text-align: center; /* Center the image */
+    margin-bottom: 10px; /* Space between image and buttons */
+}
+
+.image-container img {
+    max-width: 100%; /* Ensure the image fits within its container */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Space between buttons */
+    width: 100%; /* Ensure the buttons span across the width of the container */
+}
+
+
+
+
+/* Confetti */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: randomColor();
+    opacity: 0.9;
+    animation: fall infinite linear;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0);
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}

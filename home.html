@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy birthday, Tsetse!!</title>
+    <link rel="stylesheet" href="/css/home.css">
+
+<!--Font Family-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+<div class="confetti-container"></div>
+    <div class="container">
+        <div class="left-side">
+            <div class="L-text">
+                <div class="scan">
+                    <img src="/images/frame.png" alt="QR">
+                </div>
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div class="content">
+                <p class="title">Looking back...</p>
+        
+                <!-- Image Display -->
+                <div class="image-container">
+                    <img src="/images/FB_IMG_1723635862635.jpg" alt="Image" class="image" id="carouselImage">
+                </div>
+        
+                <!-- Button Controls -->
+                <div class="button-container">
+                    <button class="prev" onclick="prevImage()">Previous</button>
+                    <button class="next" onclick="nextImage()">Next</button>
+                </div>
+            </div>
+        </div>
+
+    <div class="body">
+        <div class="cake-loader">
+            <div class="layer layer1"></div>
+            <div class="layer layer2"></div>
+            <div class="layer layer3"></div>
+            <div class="icing icing1"></div>
+            <div class="icing icing2"></div>
+            <div class="icing icing3"></div>
+            <div class="candle candle1">
+                <div class="flame"></div>
+            </div>
+            <div class="candle candle2">
+                <div class="flame"></div>
+            </div>
+            <div class="candle candle3">
+                <div class="flame"></div>
+            </div>
+        </div>    
+    </div>
+
+<script>
+const confettiContainer = document.querySelector('.confetti-container');
+let confettiCount = 200; // Set the number of confetti pieces
+
+function randomColor() {
+    const colors = ['#ff0a54', '#ff477e', '#ff7096', '#ff85a1', '#ff99ab', '#fbb1bd'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+function createConfetti() {
+    for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw'; // random horizontal position
+        confetti.style.animationDuration = Math.random() * 6 + 4 + 's'; // random fall speed (4s to 10s)
+        confetti.style.backgroundColor = randomColor(); // assign random color
+
+        confettiContainer.appendChild(confetti);
+
+        // Add fade-out effect after falling
+        setTimeout(() => {
+            confetti.style.opacity = 0;
+            confetti.style.transition = 'opacity 2s'; // Slow fade-out over 2 seconds
+        }, 12000); // Start fading out after 12 seconds (so it disappears by the 15-second mark)
+
+        // Remove confetti after it's fully faded out
+        setTimeout(() => {
+            confetti.remove();
+        }, 15000); // Remove after 15 seconds
+    }
+}
+
+// Trigger confetti when the page is loaded
+window.addEventListener('load', () => {
+    createConfetti();
+});
+
+window.addEventListener('load', function() {
+    // Get the loader element
+    const loader = document.querySelector('.cake-loader');
+    
+    // Hide the loader once the page is fully loaded
+    loader.style.display = 'none';
+    });
+
+    // List of image paths
+    const images = [
+        '/images/img1.jpg',
+        '/images/img2.jpg',
+        '/images/img3.jpg',
+        '/images/img4.jpg',
+        '/images/img5.jpg',
+        '/images/img6.jpg',
+        '/images/img7.jpg',
+        '/images/img8.jpg',
+        '/images/img9.jpg',
+        '/images/img10.png',
+        '/images/img11.png',
+        '/images/img12.png',
+        '/images/img13.png',
+        '/images/img14.png',
+        '/images/img15.png',
+        '/images/img16.png',
+        '/images/img17.png',
+        '/images/img18.png',
+        /*'/images/img19.png',*/
+        '/images/img20.png',
+        '/images/img21.jpg',
+        '/images/img22.jpg',
+        /*'/images/img23.jpg',*/
+        '/images/img24.jpg',
+        '/images/img25.jpg',
+        '/images/img26.jpg',
+        '/images/img27.jpg',
+        '/images/img28.jpg',
+        '/images/img29.jpg',
+        '/images/img30.jpg',
+    ];
+
+    let currentImageIndex = 0;
+
+    // Function to show the next image
+    function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length; // Loop back to start
+        document.getElementById('carouselImage').src = images[currentImageIndex];
+    }
+
+    // Function to show the previous image
+    function prevImage() {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length; // Loop back to end
+        document.getElementById('carouselImage').src = images[currentImageIndex];
+    }
+</script>
+</body>
+</html>

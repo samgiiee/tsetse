@@ -1,0 +1,113 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2b0be;
+    margin: 0;
+}
+
+.cake-loader {
+    position: relative;
+    width: 100px;
+    height: 140px;
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+.layer {
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background-color: #ff6699;
+    border-radius: 15px;
+    border: 2px solid #d28c67;
+}
+
+.layer1 {
+    top: 80px;
+}
+
+.layer2 {
+    top: 50px;
+}
+
+.layer3 {
+    top: 20px;
+}
+
+.icing {
+    position: absolute;
+    width: 90px;
+    height: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 2px solid #d28c67;
+    left: 5px;
+}
+
+.icing1 {
+    top: 75px;
+}
+
+.icing2 {
+    top: 45px;
+}
+
+.icing3 {
+    top: 15px;
+}
+
+.candle {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: #ffd700;
+    border-radius: 5px;
+    z-index: 10;
+    animation: flicker 0.2s ease-in-out infinite;
+}
+
+.candle1 {
+    top: 0px;
+    left: 20px;
+}
+
+.candle2 {
+    top: 0px;
+    left: 45px;
+}
+
+.candle3 {
+    top: 0px;
+    left: 70px;
+}
+
+.flame {
+    position: absolute;
+    top: -10px;
+    left: 2px;
+    width: 6px;
+    height: 10px;
+    background-color: #ff4500;
+    border-radius: 50% 50% 0 0;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes flicker {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- Loader Animation -->
+    <div class="loader-container">
+        <div class="cake-loader">
+            <div class="layer layer1"></div>
+            <div class="layer layer2"></div>
+            <div class="layer layer3"></div>
+            <div class="icing icing1"></div>
+            <div class="icing icing2"></div>
+            <div class="icing icing3"></div>
+            <div class="candle candle1">
+                <div class="flame"></div>
+            </div>
+            <div class="candle candle2">
+                <div class="flame"></div>
+            </div>
+            <div class="candle candle3">
+                <div class="flame"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Left-side content (image) -->
+    <div class="left-side">
+        <img src="/images/main pic.webp" alt="image" class="image">
+    </div>
+
+    <!-- Login Form -->
+    <div class="form">
+        <div class="inner">
+            <form method="post" onsubmit="return validateLogin()">
+                <input type="text" placeholder="Given name (Monmon) " id="username" name="username" class="input" autocomplete="off" required>
+                <input type="password" placeholder="Courtship date (mm/dd/yy)" id="password" name="password" class="input" autocomplete="off" required>
+                <input type="submit" value="Log in" class="button">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const loaderContainer = document.querySelector('.loader-container');
+            loaderContainer.style.display = 'flex';  // Show loader when DOM is loading
+        });
+
+        window.addEventListener('load', () => {
+            const loaderContainer = document.querySelector('.loader-container');
+            loaderContainer.style.display = 'none';  // Hide loader when the page is fully loaded
+        });
+
+        function validateLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Hardcoded username and password for validation
+            if ((username === "Tsetse" && password === "070324") || (username === "Monmon" && password === "051124")) {
+                alert("Login Successful!");
+
+                // Redirect to next page after a short delay (simulating loading)
+                setTimeout(() => {
+                    window.location.href = "home.html"; // Replace with the actual page you want to load
+                }, 2000); // 2 seconds delay
+
+                return false; // Prevent form submission to manually handle the redirection
+            } else {
+                alert("Invalid username or password.");
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+
+</body>
+</html>
